@@ -8,6 +8,10 @@ func (s *Session) normalEndpoint() string {
 	return "https://m.kuku.lu/index.php?action=addMailAddrByAuto&by_system=1"
 }
 
+func (s *Session) expirationEndpoint() string {
+	return "https://m.kuku.lu/index.php?action=addMailAddrByOnetime&nopost=1&csrf_token_check=" + s.CsrfToken
+}
+
 func (s *Session) searchReceiveEndpoint(content string) string {
 	return "https://m.kuku.lu/recv._ajax.php?&q=" + content + "&csrf_token_check=" + s.CsrfToken
 }
@@ -19,3 +23,4 @@ func (s *Session) getReceiveEndpoint() string {
 func (s *Session) getEmailContentEndpoint() string {
 	return "https://m.kuku.lu/smphone.app.recv.view.php"
 }
+

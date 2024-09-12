@@ -14,6 +14,10 @@ func (s *Session) CreateRandomEmail() (string, error) {
 	return s.createEmail(s.normalEndpoint())
 }
 
+func (s *Session) CreateEmailWithExpiration() (string, error) {
+	return s.createEmail(s.expirationEndpoint())
+}
+
 func (s *Session) createEmail(url string) (string, error) {
 	r, err := s.get(url, nil)
 	if err != nil {
@@ -30,5 +34,6 @@ func (s *Session) createEmail(url string) (string, error) {
 		return "", errors.New("unknown error: " + bodyString)
 	}
 
-	return strings.TrimPrefix(bodyString, "OK:"), nil
+	return strings.TrimPrefix(bodyString, "OK: "), nil
 }
+
