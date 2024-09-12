@@ -1,5 +1,5 @@
 # kukumail.go
-
+Golang Library for "m.kuku.lu" | Temp Mail 
 ## example
 
 ### Create Email
