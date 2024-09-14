@@ -34,6 +34,6 @@ func (s *Session) createEmail(url string) (string, error) {
 		return "", errors.New("unknown error: " + bodyString)
 	}
 
-	return strings.TrimPrefix(bodyString, "OK: "), nil
+	return strings.TrimPrefix(bodyString, "OK:"), nil
 }
 
